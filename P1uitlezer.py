@@ -90,12 +90,16 @@ while True:
         	print "High KWh 		  	     ", stack[stack_teller][10:16]
         	message = 'system.raspi1.p1.high-KWh %s %d\n' % (stack[stack_teller][10:16], timestamp)
                 sock.sendall(message)
-         # Daltarief, teruggeleverd vermogen 1-0:2.8.1
-         #   elif stack[stack_teller][0:9] == "1-0:2.8.1":
-         #	print "dalterug   ", stack[stack_teller][10:15]
-         # Piek tarief, teruggeleverd vermogen 1-0:2.8.2
-         #   elif stack[stack_teller][0:9] == "1-0:2.8.2":
-         #        print "piekterug  ", stack[stack_teller][10:15]
+         # Delivered Power, Low Tariff 1-0:2.8.1
+            elif stack[stack_teller][0:9] == "1-0:2.8.1":
+                print "Delivered Power, Low   ", stack[stack_teller][10:15]
+            message = 'system.raspi1.p1.delivered-power-low %s %d\n' % (stack[stack_teller][10:15], timestamp)
+                sock.sendall(message)
+         # Delivered Power, High Tariff 1-0:2.8.2
+            elif stack[stack_teller][0:9] == "1-0:2.8.2":
+                print "Delivered Power, High  ", stack[stack_teller][10:15]
+            message = 'system.raspi1.p1.delivered-power-high %s %d\n' % (stack[stack_teller][10:15], timestamp)
+                sock.sendall(message)
          # Power failures: 0-0:96.7.21
             elif stack[stack_teller][0:11] == "0-0:96.7.21":
                 print "Phase Failures			     ", stack[stack_teller][12:17]
@@ -146,6 +150,11 @@ while True:
                 print "Current Watt Delivered		     ", int(float(stack[stack_teller][10:16])*1000), " W"
         	message = 'system.raspi1.p1.current-watt %s %d\n' % (int(float(stack[stack_teller][10:16])*1000), timestamp)
                 sock.sendall(message)
+         # Current Watt Generated: 1-0:2.7.0
+            elif stack[stack_teller][0:9] == "1-0:1.7.0":
+                print "Current Watt Generated            ", int(float(stack[stack_teller][10:16])*1000), " W"
+            message = 'system.raspi1.p1.current-watt-generated %s %d\n' % (int(float(stack[stack_teller][10:16])*1000), timestamp)
+                sock.sendall(message)
          # Limit KWh: 0-0:17.0.0
             elif stack[stack_teller][0:10] == "0-0:17.0.0":
         	print "Limit			 	     ", int(float(stack[stack_teller][11:16])*1000), " W"
@@ -171,16 +180,30 @@ while True:
                 print "Current Watts L1                     ", int(float(stack[stack_teller][11:17])*1000), " W"
         	message = 'system.raspi1.p1.watts-L1 %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                 sock.sendall(message)
+         # Current Watts L1 - Generated  1-0:22.7.0
+            elif stack[stack_teller][0:10] == "1-0:22.7.0":
+                print "Current Watts L1 Generated                    ", int(float(stack[stack_teller][11:17])*1000), " W"
+            message = 'system.raspi1.p1.watts-L1-generated %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
+                sock.sendall(message)
          # Current Watts L2 1-0:41.7.0
             elif stack[stack_teller][0:10] == "1-0:41.7.0":
                 print "Current Watts L2                     ", int(float(stack[stack_teller][11:17])*1000), " W"
         	message = 'system.raspi1.p1.watts-L2 %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                 sock.sendall(message)
-         # Current Watts L1 1-0:61.7.0
+         # Current Watts L2 - Generated 1-0:42.7.0
+            elif stack[stack_teller][0:10] == "1-0:41.7.0":
+                print "Current Watts L2 Generated                    ", int(float(stack[stack_teller][11:17])*1000), " W"
+            message = 'system.raspi1.p1.watts-L2-generated %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
+                sock.sendall(message)
+         # Current Watts L3 1-0:61.7.0
             elif stack[stack_teller][0:10] == "1-0:61.7.0":
                 print "Current Watts L3                     ", int(float(stack[stack_teller][11:17])*1000), " W"
         	message = 'system.raspi1.p1.watts-L3 %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                 sock.sendall(message)
+         # Current Watts L3 - Generated 1-0:62.7.0
+            elif stack[stack_teller][0:10] == "1-0:61.7.0":
+                print "Current Watts L3 Generated                    ", int(float(stack[stack_teller][11:17])*1000), " W"
+            message = 'system.raspi1.p1.watts-L3-generated %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
          # Current generated power: 1-0:1.7.0
          #  elif stack[stack_teller][0:9] == "1-0:2.7.0":
          #        print "Current generated power  ", int(float(stack[stack_teller][10:16])*1000), " W"
