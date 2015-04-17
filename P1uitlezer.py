@@ -10,7 +10,7 @@ import serial
 import socket
 import time
 
-CARBON_SERVER = 'boul-admin1'
+CARBON_SERVER = 'admin.boul.nl'
 CARBON_PORT = 2003
 
 
