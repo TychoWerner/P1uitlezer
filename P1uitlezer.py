@@ -108,7 +108,7 @@ while True:
          # Number of extended failures 0-0:96.7.9
             elif stack[stack_teller][0:10] == "0-0:96.7.9":
                 print "Extended Failures		     ", stack[stack_teller][11:16]
-        	    message = 'system.raspi1.p1.extended-failures %s %d\n' % (stack[stack_teller][11:16], timestamp)
+           	    message = 'system.raspi1.p1.extended-failures %s %d\n' % (stack[stack_teller][11:16], timestamp)
                 sock.sendall(message)
          # Number of Voltage Sags L1: 1-0:32.32.0
             elif stack[stack_teller][0:11] == "1-0:32.32.0":
