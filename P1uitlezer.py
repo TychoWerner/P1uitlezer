@@ -83,12 +83,12 @@ while True:
                 
                  while stack_teller < 38:
                         if stack[stack_teller][0:9] == "1-0:1.8.1":
-                        print "Low KWh                   ", stack[stack_teller][10:16]
-                        message = 'system.raspi1.p1.low-KWh %s %d\n' % (stack[stack_teller][10:16], timestamp)  
-                        sock.sendall(message)
+                                print "Low KWh                   ", stack[stack_teller][10:16]
+                                message = 'system.raspi1.p1.low-KWh %s %d\n' % (stack[stack_teller][10:16], timestamp)  
+                                sock.sendall(message)
                         elif stack[stack_teller][0:9] == "1-0:1.8.2":
-                        print "High KWh                  ", stack[stack_teller][10:16]
-                        message = 'system.raspi1.p1.high-KWh %s %d\n' % (stack[stack_teller][10:16], timestamp)
+                                print "High KWh                  ", stack[stack_teller][10:16]
+                                message = 'system.raspi1.p1.high-KWh %s %d\n' % (stack[stack_teller][10:16], timestamp)
                                 sock.sendall(message)
                  # Delivered Power, Low Tariff 1-0:2.8.1
                         elif stack[stack_teller][0:9] == "1-0:2.8.1":
