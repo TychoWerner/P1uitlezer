@@ -151,7 +151,7 @@ while True:
                                 message = 'system.raspi1.p1.current-watt %s %d\n' % (int(float(stack[stack_teller][10:16])*1000), timestamp)
                                 sock.sendall(message)
                  # Current Watt Generated: 1-0:2.7.0
-                        elif stack[stack_teller][0:9] == "1-0:1.7.0":
+                        elif stack[stack_teller][0:9] == "1-0:2.7.0":
                                 print "Current Watt Generated: ", int(float(stack[stack_teller][10:16])*1000), " W"
                                 message = 'system.raspi1.p1.current-watt-generated %s %d\n' % (int(float(stack[stack_teller][10:16])*1000), timestamp)
                                 sock.sendall(message)
@@ -191,7 +191,7 @@ while True:
                                 message = 'system.raspi1.p1.watts-L2 %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                                 sock.sendall(message)
                  # Current Watts L2 - Generated 1-0:42.7.0
-                        elif stack[stack_teller][0:10] == "1-0:41.7.0":
+                        elif stack[stack_teller][0:10] == "1-0:42.7.0":
                                 print "Current Watts L2 Generated: ", int(float(stack[stack_teller][11:17])*1000), " W"
                                 message = 'system.raspi1.p1.watts-L2-generated %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                                 sock.sendall(message)
@@ -201,7 +201,7 @@ while True:
                                 message = 'system.raspi1.p1.watts-L3 %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                                 sock.sendall(message)
                  # Current Watts L3 - Generated 1-0:62.7.0
-                        elif stack[stack_teller][0:10] == "1-0:61.7.0":
+                        elif stack[stack_teller][0:10] == "1-0:62.7.0":
                                 print "Current Watts L3 Generated: ", int(float(stack[stack_teller][11:17])*1000), " W"
                                 message = 'system.raspi1.p1.watts-L3-generated %s %d\n' % (int(float(stack[stack_teller][11:17])*1000), timestamp)
                                 sock.sendall(message)
