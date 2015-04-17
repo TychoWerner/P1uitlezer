@@ -3,6 +3,7 @@
 # v1.0 (c) 10-2012 - GJ - gratis te kopieren en te plakken
 # v1.1 2014 - changes by roeland@boul.nl to make it work with DSMR4 spec
 # v1.2 2014 - roeland@boul.nl - add graphite/carbon logging.
+# v1.3 2015 - roeland@boul.nl - add readings for power generation
 
 versie = "1.2"
 import sys
@@ -10,7 +11,7 @@ import serial
 import socket
 import time
 
-CARBON_SERVER = 'admin.boul.nl'
+CARBON_SERVER = 'host.tld'
 CARBON_PORT = 2003
 
 
@@ -74,7 +75,7 @@ while True:
                          p1_line=p1_str.strip()
                          stack.append(p1_line)
                  # als je alles wil zien moet je de volgende line uncommenten
-                         print (p1_line)
+                         #print (p1_line)
                          p1_teller = p1_teller +1
                  #    print (p1_teller)
                  #Initialize
