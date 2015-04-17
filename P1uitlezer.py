@@ -94,12 +94,12 @@ while True:
                  # Generated Power, Low Tariff 1-0:2.8.1
                         elif stack[stack_teller][0:9] == "1-0:2.8.1":
                                 print "Generated Power, Low: ", stack[stack_teller][10:16]
-                                message = 'system.raspi1.p1.generated-power-low %s %d\n' % (stack[stack_teller][10:15], timestamp)
+                                message = 'system.raspi1.p1.generated-power-low %s %d\n' % (stack[stack_teller][10:16], timestamp)
                                 sock.sendall(message)
                  # Generated Power, High Tariff 1-0:2.8.2
                         elif stack[stack_teller][0:9] == "1-0:2.8.2":
                                 print "Generated Power, High: ", stack[stack_teller][10:16]
-                                message = 'system.raspi1.p1.generated-power-high %s %d\n' % (stack[stack_teller][10:15], timestamp)
+                                message = 'system.raspi1.p1.generated-power-high %s %d\n' % (stack[stack_teller][10:16], timestamp)
                                 sock.sendall(message)
                  # Power failures: 0-0:96.7.21
                         elif stack[stack_teller][0:11] == "0-0:96.7.21":
